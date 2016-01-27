@@ -1,0 +1,51 @@
+name:                yesod-setup
+version:             0.1.0.0
+synopsis:            Easy PostgreSQL setup for yesod projects.
+description:         Please see README.md
+homepage:            http://github.com/haskellbr/yesod-setup#readme
+license:             MIT
+license-file:        LICENSE
+author:              Pedro Tacla Yamada
+maintainer:          tacla.yamada@gmail.com
+copyright:           Copyright (c) 2016 Pedro Tacla Yamada
+category:            Development
+build-type:          Simple
+extra-source-files:  README.md
+                   , LICENSE
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     YesodSetup
+  build-depends:       ansi-terminal >= 0.6.2.3
+                     , base >= 4.7 && < 5
+                     , bytestring >= 0.10.6.0
+                     , directory >= 1.2.2.0
+                     , filepath >= 1.4.0.0
+                     , postgresql-simple >= 0.5.1.2
+                     , projectroot >= 0.2.0.1
+                     , text >= 1.2.2.0
+                     , unordered-containers
+                     , yaml >= 0.8.15.2
+  default-language:    Haskell2010
+
+executable yesod-setup
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , yesod-setup
+  default-language:    Haskell2010
+
+test-suite yesod-setup-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , yesod-setup
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/haskellbr/yesod-setup

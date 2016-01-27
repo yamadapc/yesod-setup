@@ -86,6 +86,9 @@ defaultMain = do
                         _ <- execute_ conn
                             (fromString (Text.unpack ("create role \"" <> dsUser db <> "\"")))
                             `catch` handleSqlError
+                        _ <- execute_ conn
+                            (fromString (Text.unpack ("alter role \"" <> dsUser db <> "\" with login")))
+                            `catch` handleSqlError
                         Text.putStrLn ("Creating database " <> dsName db <> "...")
                         _ <- execute_ conn
                             (fromString (Text.unpack ("create database \"" <> dsName db <> "\"")))

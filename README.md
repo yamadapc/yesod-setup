@@ -1,6 +1,8 @@
 # yesod-setup
 Easy PostgreSQL setup for yesod projects.
 
+## Usage
+
 ```
 $ yesod-setup
 Looking for yesod settings in haskellbr-pessoas
@@ -10,6 +12,9 @@ Creating database haskellbr-pessoas_LOWER...
 Setting password...
 Granting privileges...
 ```
+
+## Installation
+Clone the repository and `stack install`.
 
 ## License
 MIT
